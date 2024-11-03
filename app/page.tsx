@@ -1,5 +1,5 @@
-import { Dashboard } from "@/components/dashboard"
+import { PfsLandingPage } from '@/components/pfs-landing-page'
 
-export default function HomePage() {
-  return <Dashboard />
+export default function Home() {
+  return <PfsLandingPage />
 }
