@@ -1,15 +1,27 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Card, CardContent } from "@/components/ui/card"
 import { Switch } from "@/components/ui/switch"
 import { Bar, BarChart, Line, LineChart, ResponsiveContainer } from "recharts"
-import { Moon, Sun, Home, BarChart3, Settings, HelpCircle, RefreshCcw, ArrowLeft, Plus, Layers } from "lucide-react"
-import { FinancialDashboard } from "./financial-dashboard"
-import { AssetDashboard } from "./asset-dashboard"
+import { 
+  Moon, 
+  Sun, 
+  Home, 
+  BarChart3, 
+  Settings, 
+  HelpCircle, 
+  RefreshCcw, 
+  ArrowLeft, 
+  Plus, 
+  Layers,
+  LogOut 
+} from "lucide-react"
+import { clearAuthCookie } from '@/lib/auth'
 
 const data = [
   { date: '10-1', value: 28300 },
@@ -27,14 +39,22 @@ const assetData = [
   { date: '10-29', value: 0 },
 ]
 
-export function Dashboard() {
+type ViewType = 'overview' | 'assets' | 'stats';
+
+export function DashboardPage() {
   const [isDarkMode, setIsDarkMode] = useState(false)
-  const [currentView, setCurrentView] = useState<'overview' | 'stats' | 'assets'>('overview')
+  const [currentView, setCurrentView] = useState<ViewType>('overview')
+  const router = useRouter()
 
   useEffect(() => {
     const root = window.document.documentElement
     root.classList.toggle('dark', isDarkMode)
   }, [isDarkMode])
+
+  const handleLogout = () => {
+    clearAuthCookie()
+    router.push('/login')
+  }
 
   return (
     <div className={`flex h-screen ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} text-gray-900 dark:text-white font-sans transition-colors duration-200`}>
@@ -74,8 +94,13 @@ export function Dashboard() {
           </Button>
         </div>
         <div className="mt-auto flex flex-col gap-4">
-          <Button variant="ghost" size="icon" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full">
-            <HelpCircle className="h-6 w-6" />
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full"
+            onClick={handleLogout}
+          >
+            <LogOut className="h-6 w-6" />
           </Button>
           <div className="flex flex-col items-center gap-2">
             {isDarkMode ? (
@@ -93,7 +118,7 @@ export function Dashboard() {
       </div>
 
       {/* Main Content */}
-      {currentView === 'overview' ? (
+      {currentView === 'overview' && (
         <div className="flex-1 p-8 overflow-auto">
           {/* Header */}
           <div className="flex justify-between items-center mb-10">
@@ -222,10 +247,6 @@ export function Dashboard() {
             </Card>
           </div>
         </div>
-      ) : currentView === 'stats' ? (
-        <FinancialDashboard isDarkMode={isDarkMode} />
-      ) : (
-        <AssetDashboard isDarkMode={isDarkMode} />
       )}
 
       {/* Floating Action Button */}
