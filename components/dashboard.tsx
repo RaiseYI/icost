@@ -5,7 +5,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Card, CardContent } from "@/components/ui/card"
-// import { ScrollArea } from "@/components/ui/scroll-area"
 import { Switch } from "@/components/ui/switch"
 import { Bar, BarChart, Line, LineChart, ResponsiveContainer } from "recharts"
 import { Moon, Sun, Home, BarChart3, Settings, HelpCircle, RefreshCcw, ArrowLeft, Plus, Layers } from "lucide-react"
@@ -29,7 +28,7 @@ const assetData = [
 ]
 
 export function Dashboard() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isDarkMode, setIsDarkMode] = useState(false)
   const [currentView, setCurrentView] = useState<'overview' | 'stats' | 'assets'>('overview')
 
   useEffect(() => {

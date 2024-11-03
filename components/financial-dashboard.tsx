@@ -1,17 +1,18 @@
 "use client"
 
-import { useState } from "react"
-import { BarChart, Bar, LineChart, Line, ResponsiveContainer } from "recharts"
-import { ChevronLeft, ChevronRight, Filter } from "lucide-react"
+import { type FC } from 'react'
+import { useState } from 'react'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { BarChart, LineChart, Bar, Line, ResponsiveContainer } from 'recharts'
+import { ChevronLeft, ChevronRight, Filter } from 'lucide-react'
 import { cn } from "@/lib/utils"
 
 interface FinancialDashboardProps {
-  isDarkMode: boolean;
+  isDarkMode?: boolean;
 }
 
-export function FinancialDashboard({ isDarkMode }: FinancialDashboardProps) {
+export const FinancialDashboard: FC<FinancialDashboardProps> = ({ isDarkMode = false }) => {
   const [barData] = useState(() =>
     Array.from({ length: 30 }, () => ({
       value: Math.random() * 1000

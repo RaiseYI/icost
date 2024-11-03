@@ -4,12 +4,13 @@ import { Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import { type FC } from 'react'
 
 interface AssetDashboardProps {
-  isDarkMode: boolean;
+  isDarkMode?: boolean;
 }
 
-export function AssetDashboard({ isDarkMode }: AssetDashboardProps) {
+export const AssetDashboard: FC<AssetDashboardProps> = ({ isDarkMode = false }) => {
   return (
     <div className="flex-1 p-8 overflow-auto">
       {/* 头部资产概览 */}
