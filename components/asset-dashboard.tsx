@@ -140,14 +140,6 @@ export const AssetDashboard: FC<AssetDashboardProps> = ({ isDarkMode = false }) 
           <span className="ml-2">›</span>
         </Button>
       </div>
-
-      {/* 添加账户按钮 */}
-      <Button
-        className="fixed bottom-8 right-8 h-14 w-14 rounded-full bg-blue-500 hover:bg-blue-600 shadow-lg"
-        size="icon"
-      >
-        <Plus className="h-6 w-6" />
-      </Button>
     </div>
   )
 } 
