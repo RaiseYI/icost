@@ -13,6 +13,7 @@ import {
   Menu,
 } from "lucide-react";
 import type { FeatureCardProps, TestimonialCardProps } from "@/types"
+import { setAuthCookie } from '@/lib/auth'
 
 export function PfsLandingPage() {
   const router = useRouter()
@@ -32,7 +33,8 @@ export function PfsLandingPage() {
   }
 
   const handleGetStarted = () => {
-    router.push('/login')
+    setAuthCookie()
+    router.push('/dashboard')
   }
 
   return (
