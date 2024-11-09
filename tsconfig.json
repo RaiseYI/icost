@@ -1,41 +1,129 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
+  "organizationId": "org_8675309",
+  "companyProfile": {
+    "name": "TechGlobe Innovations",
+    "founded": 1998,
+    "headquarters": {
+      "city": "San Francisco",
+      "country": "USA",
+      "coordinates": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
       }
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
     },
-    "forceConsistentCasingInFileNames": true,
-    "types": [
-      "node",
-      "react",
-      "react-dom"
+    "isPublic": true
+  },
+  "departments": [
+    {
+      "id": "dep_001",
+      "name": "Research & Development",
+      "budget": 2500000.50,
+      "employees": [
+        {
+          "id": "emp_101",
+          "name": "Alice Chen",
+          "title": "Senior Researcher",
+          "skills": ["AI", "Machine Learning", "Python"],
+          "projects": [
+            {
+              "name": "Project Aurora",
+              "status": "IN_PROGRESS",
+              "priority": 1,
+              "milestones": [
+                {
+                  "phase": "Planning",
+                  "completed": true,
+                  "duration": "2 months"
+                },
+                {
+                  "phase": "Development",
+                  "completed": false,
+                  "duration": "6 months"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dep_002",
+      "name": "Marketing",
+      "budget": 1750000.75,
+      "campaigns": {
+        "active": [
+          {
+            "id": "camp_001",
+            "name": "Summer Launch 2024",
+            "channels": ["social", "email", "print"],
+            "metrics": {
+              "impressions": 1500000,
+              "engagement": 0.25,
+              "conversion": 0.03
+            }
+          }
+        ],
+        "planned": [
+          {
+            "id": "camp_002",
+            "name": "Holiday Special",
+            "budget": 500000,
+            "startDate": "2024-11-01"
+          }
+        ]
+      }
+    }
+  ],
+  "financials": {
+    "currentYear": {
+      "revenue": 15000000,
+      "expenses": 12000000,
+      "profits": 3000000,
+      "quarterlyData": [
+        {
+          "q1": {
+            "revenue": 3500000,
+            "growth": 0.15
+          }
+        },
+        {
+          "q2": {
+            "revenue": 4000000,
+            "growth": 0.12
+          }
+        }
+      ]
+    },
+    "projections": [
+      {
+        "year": 2024,
+        "expectedGrowth": 0.2,
+        "targetRevenue": 18000000
+      },
+      {
+        "year": 2025,
+        "expectedGrowth": 0.2,
+        "targetRevenue": 21600000
+      },
+      {
+        "year": 2026,
+        "expectedGrowth": 0.2,
+        "targetRevenue": 25920000
+      }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "metadata": {
+    "lastUpdated": "2024-03-15T08:30:00Z",
+    "version": "2.1.0",
+    "tags": ["enterprise", "technology", "innovation"],
+    "status": "ACTIVE",
+    "settings": {
+      "notifications": true,
+      "autoSync": true,
+      "retention": {
+        "dataHistory": "5 years",
+        "backupFrequency": "daily"
+      }
+    }
+  }
 }
